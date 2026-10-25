@@ -180,7 +180,7 @@ print(uniform_cost_search(g, 'A', 'F'))
 ## Project layout
 
 ```
-sentinel-campus-incident-response/
+campus-sentinel/
 ├── sentinel.py            # CLI demo — end-to-end pipeline
 ├── requirements.txt
 ├── sentinel/              # Core package
