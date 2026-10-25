@@ -1,0 +1,5 @@
+# Runtime dependency (pulls numpy, scipy, joblib, threadpoolctl transitively)
+scikit-learn
+
+# Standard library only for everything else:
+#   heapq, json, csv, random, dataclasses, unittest, argparse, pathlib

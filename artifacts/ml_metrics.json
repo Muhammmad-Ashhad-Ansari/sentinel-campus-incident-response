@@ -1,0 +1,123 @@
+{
+  "model": "DecisionTreeClassifier",
+  "random_state": 42,
+  "max_depth": 4,
+  "min_samples_leaf": 2,
+  "features": [
+    "failed_logins",
+    "requests_per_min",
+    "unusual_hour",
+    "known_device",
+    "duplicate_count"
+  ],
+  "labels": [
+    "NORMAL",
+    "SUSPICIOUS",
+    "CRITICAL"
+  ],
+  "total_samples": 400,
+  "training_samples": 320,
+  "testing_samples": 80,
+  "class_distribution": {
+    "NORMAL": 180,
+    "SUSPICIOUS": 140,
+    "CRITICAL": 80
+  },
+  "train_class_distribution": {
+    "NORMAL": 144,
+    "SUSPICIOUS": 112,
+    "CRITICAL": 64
+  },
+  "test_class_distribution": {
+    "NORMAL": 36,
+    "SUSPICIOUS": 28,
+    "CRITICAL": 16
+  },
+  "accuracy": 0.9375,
+  "precision_macro": 0.9475,
+  "recall_macro": 0.9253,
+  "f1_macro": 0.9348,
+  "zero_division": 0,
+  "confusion_matrix": [
+    [
+      35,
+      1,
+      0
+    ],
+    [
+      2,
+      26,
+      0
+    ],
+    [
+      0,
+      2,
+      14
+    ]
+  ],
+  "confusion_matrix_note": "Rows are true classes; columns are predicted classes, in NORMAL, SUSPICIOUS, CRITICAL order.",
+  "classification_report": "              precision    recall  f1-score   support\n\n      NORMAL       0.95      0.97      0.96        36\n  SUSPICIOUS       0.90      0.93      0.91        28\n    CRITICAL       1.00      0.88      0.93        16\n\n    accuracy                           0.94        80\n   macro avg       0.95      0.93      0.93        80\nweighted avg       0.94      0.94      0.94        80\n",
+  "false_prediction_count": 5,
+  "false_predictions": [
+    {
+      "input_features": {
+        "failed_logins": 11,
+        "requests_per_min": 76.0,
+        "unusual_hour": 1,
+        "known_device": 0,
+        "duplicate_count": 2
+      },
+      "true_class": "CRITICAL",
+      "predicted_class": "SUSPICIOUS",
+      "possible_reason": "The record has failed_logins=11, requests_per_min=76.0, unusual_hour=1, known_device=0, duplicate_count=2. These values overlap the training ranges for SUSPICIOUS, so the decision tree may have split on a nearby threshold rather than the signal that generated the synthetic label."
+    },
+    {
+      "input_features": {
+        "failed_logins": 2,
+        "requests_per_min": 32.0,
+        "unusual_hour": 1,
+        "known_device": 1,
+        "duplicate_count": 0
+      },
+      "true_class": "SUSPICIOUS",
+      "predicted_class": "NORMAL",
+      "possible_reason": "The record has failed_logins=2, requests_per_min=32.0, unusual_hour=1, known_device=1, duplicate_count=0. These values overlap the training ranges for NORMAL, so the decision tree may have split on a nearby threshold rather than the signal that generated the synthetic label."
+    },
+    {
+      "input_features": {
+        "failed_logins": 4,
+        "requests_per_min": 15.0,
+        "unusual_hour": 0,
+        "known_device": 1,
+        "duplicate_count": 0
+      },
+      "true_class": "NORMAL",
+      "predicted_class": "SUSPICIOUS",
+      "possible_reason": "The record has failed_logins=4, requests_per_min=15.0, unusual_hour=0, known_device=1, duplicate_count=0. These values overlap the training ranges for SUSPICIOUS, so the decision tree may have split on a nearby threshold rather than the signal that generated the synthetic label."
+    },
+    {
+      "input_features": {
+        "failed_logins": 8,
+        "requests_per_min": 90.0,
+        "unusual_hour": 1,
+        "known_device": 0,
+        "duplicate_count": 3
+      },
+      "true_class": "CRITICAL",
+      "predicted_class": "SUSPICIOUS",
+      "possible_reason": "The record has failed_logins=8, requests_per_min=90.0, unusual_hour=1, known_device=0, duplicate_count=3. These values overlap the training ranges for SUSPICIOUS, so the decision tree may have split on a nearby threshold rather than the signal that generated the synthetic label."
+    },
+    {
+      "input_features": {
+        "failed_logins": 3,
+        "requests_per_min": 25.0,
+        "unusual_hour": 1,
+        "known_device": 1,
+        "duplicate_count": 0
+      },
+      "true_class": "SUSPICIOUS",
+      "predicted_class": "NORMAL",
+      "possible_reason": "The record has failed_logins=3, requests_per_min=25.0, unusual_hour=1, known_device=1, duplicate_count=0. These values overlap the training ranges for NORMAL, so the decision tree may have split on a nearby threshold rather than the signal that generated the synthetic label."
+    }
+  ]
+}
